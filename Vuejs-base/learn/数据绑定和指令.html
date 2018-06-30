@@ -14,6 +14,13 @@
 			el:'#app',
 			data:{
 				message:'开始学习 Vuejs'
+			},
+			//生命周期钩子
+			created:function(){
+				alert('我是 created，创建实例已完成，但还没挂载 el')
+			},
+			mounted:function(){
+				alert('我是 mounted，el 已挂载到实例上，即将渲染页面')
 			}
 		})
 		//访问 Vue 实例的属性

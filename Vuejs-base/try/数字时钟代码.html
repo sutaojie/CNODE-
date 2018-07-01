@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <title>数字时钟</title>
     <style>
-    #eight {
+    .digits{
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    }
+    .zero,.one,.two,.three,.four,.five,.six,.seven,.eight,.nine{
         width: 28px;
         height: 50px;
+        margin: 10px;
         position: relative;
     }
+    
 
     .d1 {
         width: 16px;
@@ -204,7 +211,63 @@
 </head>
 
 <body>
-    <div id="eight">
+	<div class="digits">
+		<div class="zero">
+        <span class="d1"></span>
+        <span class="d3"></span>
+        <span class="d4"></span>
+        <span class="d5"></span>
+        <span class="d6"></span>
+        <span class="d7"></span>
+    </div>
+
+    <div class="one">
+        <span class="d5"></span>
+        <span class="d7"></span>
+    </div>
+
+    <div class="two">
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <span class="d3"></span>
+        <span class="d5"></span>
+        <span class="d6"></span>
+    </div>
+    <div class="three">
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <span class="d3"></span>
+        <span class="d5"></span>
+        <span class="d7"></span>
+    </div>
+    <div class="four">
+        <span class="d2"></span>
+        <span class="d4"></span>
+        <span class="d5"></span>
+        <span class="d7"></span>
+    </div>
+    <div class="five">
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <span class="d3"></span>
+        <span class="d4"></span>
+        <span class="d7"></span>
+    </div>
+    <div class="six">
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <span class="d3"></span>
+        <span class="d4"></span>
+        <span class="d6"></span>
+        <span class="d7"></span>
+    </div>
+    
+    <div class="seven">
+        <span class="d1"></span>
+        <span class="d5"></span>
+        <span class="d7"></span>
+    </div>
+    <div class="eight">
         <span class="d1"></span>
         <span class="d2"></span>
         <span class="d3"></span>
@@ -212,6 +275,15 @@
         <span class="d5"></span>
         <span class="d6"></span>
         <span class="d7"></span>
+    </div>
+    <div class="nine">
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <span class="d3"></span>
+        <span class="d4"></span>
+        <span class="d5"></span>
+        <span class="d7"></span>
+    </div>
     </div>
 </body>
 

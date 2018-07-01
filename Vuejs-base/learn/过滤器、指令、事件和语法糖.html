@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>过滤器、指令、事件和语法糖</title>
+    <meta charset="UTF-8">
+    <title>过滤器、指令、事件和语法糖</title>
 </head>
+
 <body>
-	<div id="dateApp">
-		{{date}}
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script type="text/javascript">
-		// 需求：在页面实时显示时间
-		var app = new Vue({
-			el:'#dateApp',
-			data:{
-				date:new Date()
-			},
-		mounted:function(){
-				//this 代表 vue 实例
-				var _this = this
-				this.timerId = setInterval(()=>{
-					this.date= new Date()
-				},1000)
-			},
-		// 销毁事件
-		beforeDestroy:function(){
-			//如果定时器存在，就清楚定时器
-			if(this.timerId){
-				clearInterval(this.timerId)
-			}
-		}
-		})
-	</script>
+    <div id="dateApp">
+    	{{date}} <br>
+        {{date |formatDate}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+    var datePulsZore = function (value){
+    	return value < 10 ? '0'+value : value
+    }
+    // 需求：在页面实时显示时间
+    var app = new Vue({
+        el: '#dateApp',
+        data: {
+            date: new Date()
+        },
+        //定义过滤器
+        filters: {
+        	formatDate:function(value){
+        		var date = new Date(value)
+        		var year = date.getFullYear()
+        		var month = datePulsZore(date.getMonth()+1)
+        		var day = datePulsZore(date.getDate())
+        		var hours = datePulsZore(date.getHours())
+        		var minutes = datePulsZore(date.getMinutes())
+        		var seconds = datePulsZore(date.getSeconds())
+
+        		return `${year} 年 ${month} 月 ${day} 日  ${hours}: ${minutes} : ${seconds} `
+        	}
+        },
+        mounted: function() {
+            //this 代表 vue 实例
+            var _this = this
+            this.timerId = setInterval(() => {
+                this.date = new Date()
+            }, 1000)
+        },
+        // 销毁事件
+        beforeDestroy: function() {
+            //如果定时器存在，就清楚定时器
+            if (this.timerId) {
+                clearInterval(this.timerId)
+            }
+        }
+    })
+    </script>
 </body>
+
 </html>

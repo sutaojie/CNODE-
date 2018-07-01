@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>填写姓名</title>
+</head>
+<body>
+	<div id="app">
+		<h2>{{title}}</h2>
+		firstName: {{firstName}} <br>
+		lastName: {{lastName}} <br>
+		fullName （计算属性）: {{spellName}} 	<br>
+		fullName （watch()）: {{watch()}}
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				title:'姓名',
+				firstName:'Su',
+				lastName:'Zhaoyong',
+				fullName:'',
+			},
+			computed:{
+				spellName:{
+
+					get:function(){
+						console.log('运行了 spellName 中 get 方法');
+						this.fullName = this.firstName +' ' +this.lastName
+						return this.fullName
+					},
+					set:function(fullNameValue){
+						console.log('运行了 spellName 中 set 方法');
+						this.firstName = fullNameValue.split(' ')[0]
+						this.lastName = fullNameValue.split(' ')[1]
+					}
+				}
+			},
+			methods:{
+				watch:function(){
+					console.log('运行了 watch');
+					this.fullName = this.firstName +' ' +this.lastName
+					return this.fullName
+				}
+			}
+		})
+	</script>
+</body>
+</html>

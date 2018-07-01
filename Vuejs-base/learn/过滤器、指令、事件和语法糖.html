@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器、指令、事件和语法糖</title>
+</head>
+<body>
+	<div id="dateApp">
+		{{date}}
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		// 需求：在页面实时显示时间
+		var app = new Vue({
+			el:'#dateApp',
+			data:{
+				date:new Date()
+			},
+		mounted:function(){
+				//this 代表 vue 实例
+				var _this = this
+				this.timerId = setInterval(()=>{
+					this.date= new Date()
+				},1000)
+			},
+		// 销毁事件
+		beforeDestroy:function(){
+			//如果定时器存在，就清楚定时器
+			if(this.timerId){
+				clearInterval(this.timerId)
+			}
+		}
+		})
+	</script>
+</body>
+</html>

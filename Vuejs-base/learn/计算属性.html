@@ -6,7 +6,8 @@
 </head>
 <body>
 	<div id="demo">
-		{{numberList.split(',').reverse().join(',')}}
+		{{numberList.split(',').reverse().join(',')}} <br>
+		{{reverseText}}
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
@@ -15,6 +16,11 @@
 			el:'#demo',
 			data:{
 				numberList:'123,456,789'
+			},
+			computed:{
+				reverseText:function(){
+					return this.numberList.split(',').reverse().join(',')
+				}
 			}
 		})
 

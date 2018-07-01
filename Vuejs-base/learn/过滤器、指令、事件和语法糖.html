@@ -21,10 +21,12 @@
         v-html:
         <span v-html='banner'></span> 	<br>
         v-bind:
-        <div v-bind:class="className"></div> 	<br>
+        <!-- <div v-bind:class="className"></div> --> 	<br>
+        <div :class="className"></div> 	<br>
 		v-on: 	<br>
 		{{countNum}} <br>
-		<button v-on:click='count'>+1</button>
+		<!-- <button v-on:click='count'>+1</button> -->
+		<button @click='count'>+1</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript">

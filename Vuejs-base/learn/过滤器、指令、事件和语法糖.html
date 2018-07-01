@@ -11,6 +11,11 @@
 		height: 100px;
 		background-color: grey;
 	}
+    .tranGreen{
+        width:100px;
+        height: 100px;
+        background-color: green;
+    }
 </style>
 <body>
     <div id="dateApp">
@@ -40,7 +45,7 @@
             date: new Date(),
             apple: '苹果',
             banner: '<span style="color:yellow">香蕉</span>',
-            className:'tranRed',
+            className:['tranRed','tranGreen'],
             countNum:0,
         },
         //定义过滤器

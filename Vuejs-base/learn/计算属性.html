@@ -7,7 +7,9 @@
 <body>
 	<div id="demo">
 		{{numberList.split(',').reverse().join(',')}} <br>
-		{{reverseText}}
+		{{reverseText}} <br>
+		{{reverseString}} <br>
+		{{reverseStringMethod()}}
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
@@ -15,12 +17,21 @@
 		var app = new Vue({
 			el:'#demo',
 			data:{
-				numberList:'123,456,789'
+				numberList:'123,456,789',
+				string:'abcdefg'
 			},
 			//定义计算属性
 			computed:{
 				reverseText:function(){
 					return this.numberList.split(',').reverse().join(',')
+				},
+				reverseString:function(){
+					return this.string.split('').reverse().join('')
+				}
+			},
+			methods:{
+				reverseStringMethod:function(){
+					return this.string.split('').reverse().join('')
 				}
 			}
 		})

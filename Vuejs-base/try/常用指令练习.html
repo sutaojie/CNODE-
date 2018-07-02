@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>常用指令练习</title>
+</head>
+	<style>
+		.fruitStyle{
+			display: block;
+			width: 150px;
+			text-decoration: underline;
+		}
+	</style>
+<body>
+    <div id="app">
+    	<!-- v-model指令 -->
+        显示内容： {{message}}  <br>
+        请输入内容：<input type="text" v-model='message'> <br><br>
+		<!-- v-for指令 -->
+		<!-- v-bind指令 -->
+        水果列表： 
+        <ol>
+        	<li v-for="(fruit, index) in fruits" :class='{fruitStyle:true}'>{{index}}-{{fruit}}</li>
+        </ol>
+        <!-- v-on指令 -->
+        道具：
+        <button @click='sortLength()'>排序</button>
+        <button @click.once='reserveFruits'>翻转(限使用一次)</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+        	message:'',
+        	fruits:['apple','bananananan','cherryyy','durian','fig']
+        },
+        methods:{
+        	sortLength:function(fruits){
+        		this.fruits = this.fruits.sort((fruit1, fruit2)=>fruit1.length - fruit2.length)
+        	},
+        	reserveFruits:function(){
+        		this.fruits.reverse()
+        	}
+        },
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-bind绑定样式</title>
+</head>
+<style type="text/css">
+	.colorRed{
+		color:red;
+	}
+	.spanBackground{
+		background-color: rgba(0,0,0,0.3);
+	}
+</style>
+<body>
+	<div id="app">
+		<!-- 绑定Class对象语法 -->
+		<span :class ="{colorRed:true}">Hello,</span>
+		<!-- 绑定Class数组语法 -->
+		<span :class="[colorRed,spanBackground]">Vue.js</span>
+		<!-- 绑定Style对象语法 -->
+		<div :style="{width:varWidth,height:varHight,border:varBorder}"></div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				colorRed:'colorRed',
+				spanBackground: "spanBackground",
+				varWidth:'100px',
+				varHight:'100px',
+				varBorder:'1px solid green',
+			}
+		})
+	</script>
+</body>
+</html>
